@@ -1,8 +1,9 @@
 import React from 'react';
 import { FilterInput, FilterInputLabel, FilterWrap } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
-import { setFilter } from 'redux/filterSlice';
+
+import { setFilter } from 'redux/filter/filterSlice';
+import { selectFilter } from 'redux/filter/selectors';
 
 function Filter() {
   const filter = useSelector(selectFilter);

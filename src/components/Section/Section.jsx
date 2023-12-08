@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { SectionContainer, SectionTitle } from './Section.styled';
 
 export function Section({ title, children }) {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deletContactThunk } from 'redux/operations';
+
+import { deleteContactThynk } from 'redux/contacts/operations';
+
 import {
   Contact,
   DeleteContactBtn,
@@ -8,18 +10,18 @@ import {
   Spanphone,
 } from './ContactItem.styled';
 
-const ContactItem = ({ id, name, phone }) => {
+const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
-  const handlDeleteContact = id => {
-    dispatch(deletContactThunk(id));
+  const handlDeleteContact = () => {
+    dispatch(deleteContactThynk(id));
   };
 
   return (
     <div>
       <Contact>
-        <SpanName>{name}</SpanName> : <Spanphone>{phone}</Spanphone>
-        <DeleteContactBtn type="button" onClick={() => handlDeleteContact(id)}>
+        <SpanName>{name}</SpanName> : <Spanphone>{number}</Spanphone>
+        <DeleteContactBtn type="button" onClick={handlDeleteContact}>
           Delete
         </DeleteContactBtn>
       </Contact>
