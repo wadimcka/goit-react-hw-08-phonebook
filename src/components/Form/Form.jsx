@@ -25,7 +25,6 @@ export const Form = () => {
         setName(value);
         break;
       case 'number':
-        console.log(value);
         setNumber(value);
         break;
       default:
@@ -60,7 +59,6 @@ export const Form = () => {
       <FormInput
         type="text"
         name="name"
-        // pattern="^[a-zA-Zа-яА-Я'-\s]+$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
         value={name}

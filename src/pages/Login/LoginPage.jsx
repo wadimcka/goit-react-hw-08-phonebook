@@ -43,7 +43,6 @@ const LoginPage = () => {
           type="email"
           name="email"
           value={email}
-          // pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
           title="Enter your email address"
           placeholder="example@domain.com"
           required
@@ -54,7 +53,6 @@ const LoginPage = () => {
           type="text"
           name="password"
           value={password}
-          // pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
           title="Enter your password"
           placeholder="Enter password"
           required

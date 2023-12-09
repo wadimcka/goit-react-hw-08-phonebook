@@ -21,7 +21,7 @@ const appRoutes = [
   {
     path: ROUTE.REGISTER_ROUTE,
     element: (
-      <RestrictedRoute>
+      <RestrictedRoute navigateTo={ROUTE.CONTACTS_ROUTE}>
         <RegisterPage />
       </RestrictedRoute>
     ),
@@ -29,7 +29,7 @@ const appRoutes = [
   {
     path: ROUTE.LOGIN_ROUTE,
     element: (
-      <RestrictedRoute>
+      <RestrictedRoute navigateTo={ROUTE.CONTACTS_ROUTE}>
         <LoginPage />
       </RestrictedRoute>
     ),
@@ -37,7 +37,7 @@ const appRoutes = [
   {
     path: ROUTE.CONTACTS_ROUTE,
     element: (
-      <PrivateRoute>
+      <PrivateRoute navigateTo={ROUTE.LOGIN_ROUTE}>
         <ContactsPage />
       </PrivateRoute>
     ),
@@ -48,7 +48,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const { authenticated, isRefreshing } = useAuth();
   useEffect(() => {
-    console.log('Calling refreshUserThunk');
     dispatch(refreshUserThunk(authenticated));
   }, [authenticated, dispatch]);
 

@@ -42,12 +42,10 @@ export const refreshUserThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    console.log(persistedToken);
 
     try {
       setToken(persistedToken);
       const responce = await refreshCurrentUser();
-      console.log(responce);
       return responce;
     } catch (error) {
       toast.warn(error);

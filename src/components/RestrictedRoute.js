@@ -6,7 +6,6 @@ import { useAuth } from './hooks/uaeAuth';
 
 export const RestrictedRoute = ({ children, navigateTo = HOME_ROUTE }) => {
   const { authenticated } = useAuth();
-  console.log(authenticated);
 
   return authenticated ? <Navigate to={navigateTo} replace /> : children;
 };

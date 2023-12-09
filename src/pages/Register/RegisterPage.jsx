@@ -70,7 +70,6 @@ const RegisterPage = () => {
           type="text"
           name="password"
           value={password}
-          // pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{6,}/"
           title="Choose a strong password"
           placeholder="Enter password"
           required
