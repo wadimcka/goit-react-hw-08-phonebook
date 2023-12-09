@@ -46,25 +46,28 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       })
-      .addCase(refreshUserThunk.pending, (state, { payload }) => {
+      .addCase(refreshUserThunk.pending, state => {
+        console.log('refreshUserThunk is pending');
         state.isLoading = true;
         state.isRefreshing = true;
       })
       .addCase(refreshUserThunk.fulfilled, (state, { payload }) => {
+        console.log('refreshUserThunk is fulfilled');
         state.isLoading = false;
         state.isRefreshing = false;
         state.authenticated = true;
         state.userData = payload;
       })
       .addCase(refreshUserThunk.rejected, (state, { payload }) => {
+        console.log('refreshUserThunk is rejected');
         state.isLoading = false;
-        state.isRefreshing = true;
+        state.isRefreshing = false;
         state.error = payload;
       })
-      .addCase(logOutThunk.pending, (state, { payload }) => {
+      .addCase(logOutThunk.pending, state => {
         state.isLoading = true;
       })
-      .addCase(logOutThunk.fulfilled, (state, { payload }) => {
+      .addCase(logOutThunk.fulfilled, state => {
         state.isLoading = false;
         state.authenticated = false;
         state.token = null;

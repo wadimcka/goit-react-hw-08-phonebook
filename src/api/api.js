@@ -33,7 +33,7 @@ export const getLogInUser = async userData => {
   return data;
 };
 
-export const refreshCurrentUser = async userData => {
+export const refreshCurrentUser = async () => {
   const response = await instance.get('/users/current');
   const { data } = response;
   if (response.status < 200 || response.status >= 300) {

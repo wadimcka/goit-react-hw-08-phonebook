@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -46,14 +46,15 @@ const appRoutes = [
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing, isLoading } = useAuth();
+  const { authenticated, isRefreshing } = useAuth();
   useEffect(() => {
-    dispatch(refreshUserThunk());
-  }, [dispatch]);
+    console.log('Calling refreshUserThunk');
+    dispatch(refreshUserThunk(authenticated));
+  }, [authenticated, dispatch]);
 
   return (
-    <Suspense fallback={<Loader />}>
-      {isRefreshing && isLoading ? (
+    <>
+      {isRefreshing ? (
         <Loader />
       ) : (
         <>
@@ -79,7 +80,7 @@ export const App = () => {
           />
         </>
       )}
-    </Suspense>
+    </>
   );
 };
 

@@ -20,8 +20,6 @@ export const Form = () => {
 
   const handlerFormInputChange = event => {
     const { name, value } = event.target;
-    console.log(name);
-    console.log(value);
     switch (name) {
       case 'name':
         setName(value);

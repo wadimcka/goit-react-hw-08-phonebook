@@ -6,10 +6,10 @@ import { useAuth } from './hooks/uaeAuth';
 
 export const PrivateRoute = ({ children, navigateTo = HOME_ROUTE }) => {
   const { authenticated, isRefreshing } = useAuth();
+  console.log(authenticated);
+  console.log(isRefreshing);
 
-  return !authenticated && !isRefreshing ? (
-    <Navigate to={navigateTo} replace />
-  ) : (
-    children
-  );
+  const shouldRedirect = !authenticated && !isRefreshing;
+
+  return shouldRedirect ? <Navigate to={navigateTo} replace /> : children;
 };
